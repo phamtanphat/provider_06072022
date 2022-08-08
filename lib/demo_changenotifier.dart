@@ -11,6 +11,11 @@ class Counter extends ChangeNotifier {
     print(_count);
     notifyListeners();
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }
 
 class DemoChangeNotifier extends StatelessWidget{
@@ -21,6 +26,7 @@ class DemoChangeNotifier extends StatelessWidget{
         title: Text("Demo Change Notifier"),
       ),
       body: ChangeNotifierProvider(
+        lazy: true,
         create: (context) => Counter(),
         child: TestWidget(),
       ),
@@ -28,8 +34,13 @@ class DemoChangeNotifier extends StatelessWidget{
   }
 }
 
-class TestWidget extends StatelessWidget{
+class TestWidget extends StatefulWidget{
 
+  @override
+  State<TestWidget> createState() => _TestWidgetState();
+}
+
+class _TestWidgetState extends State<TestWidget> {
   @override
   Widget build(BuildContext context) {
     Counter counter = Provider.of(context);
