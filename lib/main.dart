@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider_06072022/demo_changenotifier.dart';
 import 'package:provider_06072022/demo_provider.dart';
 
 void main() {
@@ -16,9 +17,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        "/provider_basic" : (context) => DemoProviderWidget()
+        "/provider_basic" : (context) => DemoProviderWidget(),
+        "/provider_change_notifier" : (context) => DemoChangeNotifier()
       },
-      initialRoute:  "/provider_basic",
+      initialRoute:  "/provider_change_notifier",
     );
   }
 }
